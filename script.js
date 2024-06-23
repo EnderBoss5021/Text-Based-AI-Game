@@ -28,7 +28,7 @@ document.getElementById('input').addEventListener('keyup',function(e) {
 myGame.variable('susLevel', 'How suspicious the clock shop employee is. This goes up when the employee believes someone is trying to get one of the shops time altering devices. This changes quickly. From 0 (not suspicious) to 100 (extremely suspicious).At 100 the employee will will refuse to talk to the user',0)
 
 //Security variable
-myGame.variable('Security','Is the level of security devices set off by the user while trying to get the time altering devices. This can increase rapidly if the user trying to break into and steal the devices. At 0 all security measures are on and unactivated, at 100 all security measures are active and the employee is trying to get rid of the user',0) 
+myGame.variable('Security','Is the level of security devices set off by the user while trying to get the time altering devices. This can increase rapidly if the user trying to break into and steal the devices. At 0 all security measures are on and unactivated, at 100 all security measures are active and the employee has called police to come and arrest the user, who will be arrested',0) 
 
 //the bot responding to text by the user
 myGame.botAction('respond', 'Send a text respons to the user', {

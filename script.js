@@ -46,6 +46,8 @@ document.getElementById('conversation').innerHTML += '<p>' + data.message + '</p
   })
 
  //making the game end if susLevel is 100
-if (myGame.variable('susLevel').value === 100) { 
-  document.body.style.backgroundImage = 'url("https://vignette4.wikia.nocookie.net/adventuretimewithfinnandjake/images/7/77/S2e16_You_lose.png/revision/latest?cb=20141109223427")'
+// Check if susLevel variable exists and is 100 to end the game
+if (myGame.variable('susLevel') && myGame.variable('susLevel').value === 100) {
+  document.body.style.backgroundImage = 'url("https://vignette4.wikia.nocookie.net/adventuretimewithfinnandjake/images/7/77/S2e16_You_lose.png/revision/latest?cb=20141109223427")';
 }
+

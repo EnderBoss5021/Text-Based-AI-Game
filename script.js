@@ -24,25 +24,25 @@ document.getElementById('input').addEventListener('keyup',function(e) {
   }
 })
 
-//distance variable
-myGame.variable('Distance', 'The current distance (in blocks) from Delprr to the target (in the game (minecraft)). Starts at 1000 blocks away.Changes (positive and negativly) as the user get further away and closer to Delprr and as Delprr gets closer and further away to the user.',0)
+//susLevel variable
+myGame.variable('susLevel', 'How suspicious the clock shop employee is. This goes up when the employee believes someone is trying to get one of the shops time altering devices. This changes quickly. From 0 (not suspicious) to 100 (extremely suspicious). At 100 the employee will will refuse to talk to the customer',0)
 
-//scared variable
-myGame.variable('scaredLevel', 'How scared the user is. This changes quickly. From 0 (not scared) to 50 (very scared).',0) 
+//palceholder variable
+myGame.variable('placeholder', '--------------------',0) 
 
 //the bot responding to text by the user
 myGame.botAction('respond', 'Send a text respons to the user', {
   message: 'What you want to say to the user'}, data => {
   
-  //changing the background color, depending on scared level
-  document.body.style.backgroundColor = `rgba(66,167,245, ${data.currentVariables.scaredLevel.value/50}`
+  //changing the background color, depending on placeholder level
+  document.body.style.backgroundColor = `rgba(66,167,245, ${data.currentVariables.placeholder.value/50}`
   
   //adding the bots response to the conversation
 document.getElementById('conversation').innerHTML += '<p>' + data.message + '</p>'
 
-  //changing distance
-  document.getElementById('Distance').innerHTML =
-    data.currentVariables.Distance.value
+  //changing susLevel
+  document.getElementById('placeholder').innerHTML =
+    data.currentVariables.susLevel.value
 
 
                                               

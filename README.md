@@ -1,3 +1,3 @@
-A Text Based AI game
-Made for Arcade Hack Club
-Built using WizardOrpheus on Replit
+A Text-Based AI game,
+made for Arcade Hack Club
+,built using WizardOrpheus on Replit

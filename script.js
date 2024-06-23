@@ -11,6 +11,17 @@ myGame.createUserAction({
     
 })
 
+ checkGameEnd();
+
+function checkGameEnd() {
+  let susLevelVariable = myGame.variable('susLevel');
+  if (susLevelVariable && susLevelVariable.value === 100) {
+    document.body.style.backgroundImage = 'url("https://vignette4.wikia.nocookie.net/adventuretimewithfinnandjake/images/7/77/S2e16_You_lose.png/revision/latest?cb=20141109223427")';
+   
+  }
+}
+
+
 document.getElementById('input').addEventListener('keyup',function(e) { 
   if (e.code == 'Enter') { // If the user presses "enter"
     let userInput = document.getElementById('input').value
@@ -25,7 +36,7 @@ document.getElementById('input').addEventListener('keyup',function(e) {
 })
 
 //susLevel variable
-myGame.variable('susLevel', 'How suspicious the clock shop employee is. This goes up when the employee believes someone is trying to get one of the shops time altering devices. This changes quickly. From 0 (not suspicious) to 100 (extremely suspicious).At 100 the employee will will refuse to talk to the user',0)
+myGame.variable('susLevel', 'How suspicious the clock shop employee is. This goes up when the employee believes someone is trying to get one of the shops time altering devices. This changes (positivly and negativly) quickly. From 0 (not suspicious) to 100 (extremely suspicious).At 100 the employee will will refuse to talk to the user.',0)
 
 //Alarm variable
 myGame.variable('Alarm','Is the level of Alarm set off by the user while trying to get the time altering devices. This can increase rapidly if the user trying to break into and steal the devices. At 0 all security measures are on and unactivated, at 100 all security measures are active and the employee has called police to come and arrest the user, who will be arrested',0) 
@@ -45,9 +56,8 @@ document.getElementById('conversation').innerHTML += '<p>' + data.message + '</p
     data.currentVariables.susLevel.value                
   })
 
- //making the game end if susLevel is 100
-// Check if susLevel variable exists and is 100 to end the game
-if (myGame.variable('susLevel') && myGame.variable('susLevel').value === 100) {
-  document.body.style.backgroundImage = 'url("https://vignette4.wikia.nocookie.net/adventuretimewithfinnandjake/images/7/77/S2e16_You_lose.png/revision/latest?cb=20141109223427")';
-}
+
+
+
+
 

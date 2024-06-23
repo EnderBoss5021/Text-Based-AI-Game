@@ -7,16 +7,9 @@ You are an employee at the Whispers of Time Clock Shop, a quaint store filled wi
 myGame.createUserAction({
   name: 'message',
   parameters: ['Message from user to game'],
-  howBotShouldHandle: function() {
-    if (myGame.variable('susLevel') === 100) {
-       'tell the user they have been kicked out of the shop and they should reload the page to try again';
-    } else {
-      // Handle the message normally
-      // Replace this with your desired behavior for non-suspicious users
-      return 'Respond to the user.';
-    }
-  }
-});
+  howBotShouldHandle: 'Respond to the user.'
+    
+})
 
 document.getElementById('input').addEventListener('keyup',function(e) { 
   if (e.code == 'Enter') { // If the user presses "enter"
@@ -34,23 +27,25 @@ document.getElementById('input').addEventListener('keyup',function(e) {
 //susLevel variable
 myGame.variable('susLevel', 'How suspicious the clock shop employee is. This goes up when the employee believes someone is trying to get one of the shops time altering devices. This changes quickly. From 0 (not suspicious) to 100 (extremely suspicious).At 100 the employee will will refuse to talk to the user',0)
 
-//Security variable
-myGame.variable('Security','Is the level of security devices set off by the user while trying to get the time altering devices. This can increase rapidly if the user trying to break into and steal the devices. At 0 all security measures are on and unactivated, at 100 all security measures are active and the employee has called police to come and arrest the user, who will be arrested',0) 
+//Alarm variable
+myGame.variable('Alarm','Is the level of Alarm set off by the user while trying to get the time altering devices. This can increase rapidly if the user trying to break into and steal the devices. At 0 all security measures are on and unactivated, at 100 all security measures are active and the employee has called police to come and arrest the user, who will be arrested',0) 
 
 //the bot responding to text by the user
 myGame.botAction('respond', 'Send a text respons to the user', {
   message: 'What you want to say to the user'}, data => {
   
   //changing the background color, depending on Security level
-  document.body.style.backgroundColor = `rgba(255,30,05, ${data.currentVariables.Security.value/50}`
+  document.body.style.backgroundColor = `rgba(255,30,05, ${data.currentVariables.Alarm.value/50}`
   
   //adding the bots response to the conversation
 document.getElementById('conversation').innerHTML += '<p>' + data.message + '</p>'
 
   //changing susLevel
   document.getElementById('susLevel').innerHTML =
-    data.currentVariables.susLevel.value
-
-
-                                              
+    data.currentVariables.susLevel.value                
   })
+
+ //making the game end if susLevel is 100
+if (myGame.variable('susLevel').value === 100) { 
+  document.body.style.backgroundImage = 'url("https://vignette4.wikia.nocookie.net/adventuretimewithfinnandjake/images/7/77/S2e16_You_lose.png/revision/latest?cb=20141109223427")'
+}

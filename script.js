@@ -7,9 +7,16 @@ You are an employee at the Whispers of Time Clock Shop, a quaint store filled wi
 myGame.createUserAction({
   name: 'message',
   parameters: ['Message from user to game'],
-  howBotShouldHandle: 'Respond to the user'
-
-})
+  howBotShouldHandle: function() {
+    if (myGame.variable('susLevel') === 100) {
+       'tell the user they have been kicked out of the shop and they should reload the page to try again';
+    } else {
+      // Handle the message normally
+      // Replace this with your desired behavior for non-suspicious users
+      return 'Respond to the user.';
+    }
+  }
+});
 
 document.getElementById('input').addEventListener('keyup',function(e) { 
   if (e.code == 'Enter') { // If the user presses "enter"

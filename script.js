@@ -16,8 +16,9 @@ myGame.createUserAction({
 function checkGameEnd() {
   let susLevelVariable = myGame.variable('susLevel');
   if (susLevelVariable && susLevelVariable.value === 100) {
-    document.body.style.backgroundImage = 'url("https://vignette4.wikia.nocookie.net/adventuretimewithfinnandjake/images/7/77/S2e16_You_lose.png/revision/latest?cb=20141109223427")';
-   
+    document.body.innerHTML = '<h1>You have been caught by the police, game over.</h1>';
+
+    
   }
 }
 

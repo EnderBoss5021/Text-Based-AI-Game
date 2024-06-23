@@ -25,23 +25,23 @@ document.getElementById('input').addEventListener('keyup',function(e) {
 })
 
 //susLevel variable
-myGame.variable('susLevel', 'How suspicious the clock shop employee is. This goes up when the employee believes someone is trying to get one of the shops time altering devices. This changes quickly. From 0 (not suspicious) to 100 (extremely suspicious). At 100 the employee will will refuse to talk to the customer',0)
+myGame.variable('susLevel', 'How suspicious the clock shop employee is. This goes up when the employee believes someone is trying to get one of the shops time altering devices. This changes quickly. From 0 (not suspicious) to 100 (extremely suspicious).At 100 the employee will will refuse to talk to the user',0)
 
-//palceholder variable
-myGame.variable('placeholder', '--------------------',0) 
+//Security variable
+myGame.variable('Security','Is the level of security devices set off by the user while trying to get the time altering devices. This can increase rapidly if the user trying to break into and steal the devices. At 0 all security measures are on and unactivated, at 100 all security measures are active and the employee is trying to get rid of the user',0) 
 
 //the bot responding to text by the user
 myGame.botAction('respond', 'Send a text respons to the user', {
   message: 'What you want to say to the user'}, data => {
   
-  //changing the background color, depending on placeholder level
-  document.body.style.backgroundColor = `rgba(66,167,245, ${data.currentVariables.placeholder.value/50}`
+  //changing the background color, depending on Security level
+  document.body.style.backgroundColor = `rgba(255,30,05, ${data.currentVariables.Security.value/50}`
   
   //adding the bots response to the conversation
 document.getElementById('conversation').innerHTML += '<p>' + data.message + '</p>'
 
   //changing susLevel
-  document.getElementById('placeholder').innerHTML =
+  document.getElementById('susLevel').innerHTML =
     data.currentVariables.susLevel.value
 
 
